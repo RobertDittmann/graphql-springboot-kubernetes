@@ -1,0 +1,14 @@
+type User {
+    id: ID!
+    name: String!
+    surname: String!
+}
+
+type Query {
+    findAllUsers: [User]!
+    findUserBySurname(surname: String!) : User
+}
+
+type Mutation {
+    addUser(name: String!, surname: String!): User!
+}

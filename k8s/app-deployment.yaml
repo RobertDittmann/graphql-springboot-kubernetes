@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-graphql-springboot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      apps: docker-graphql-springboot
+  template:
+    metadata:
+      labels:
+        apps: docker-graphql-springboot
+    spec:
+      containers:
+        - name: docker-graphql-springboot
+          imagePullPolicy: Never
+          image: docker-graphql-springboot:latest
+          ports:
+            - containerPort: 8855

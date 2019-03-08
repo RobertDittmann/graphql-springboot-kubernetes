@@ -1,0 +1,21 @@
+enum TaskType {
+    JOB
+    HOME
+    FREE_TIME
+}
+
+type Task {
+    id: ID!
+    taskType: TaskType!
+    description: String!
+    user: User!
+}
+
+extend type Query {
+    findAllTasks: [Task]!
+}
+
+extend type Mutation {
+    addTask(taskType: TaskType!, description: String!, userId: Long!): Task!
+}
+
